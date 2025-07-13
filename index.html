@@ -2,20 +2,30 @@
 <html lang="en">
     
 <head>
+  <!-- SwiperJS CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website</title>
+    <title>SenpaiStudios</title>
 </head>
 <body>
+  <div class="custom-cursor"></div>
+
+  <div class="cursor-glow"></div>
+
     <div class="header-hover-zone">
   <header class="header">
     <a href="#" class="logo">SENπ</a>
     <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
     <nav id="navbar">
       <a href="#home" class="active">Home</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#portfolio">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -27,7 +37,7 @@
     <a href="#" class="logo">SENπ</a>
     <nav>
       <a href="#home" class="active">Home</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -39,7 +49,7 @@
 
         <nav>
             <a href="#" class="active"> Home</a>
-            <a href="#" >Portfolio</a>
+            <a href="#" >projects</a>
             <a href="#" >Experience</a>
             <a href="#" >Contact</a>
         </nav>
@@ -53,12 +63,13 @@
             <h3 class="typing-text"> <span></span></h3>
             <p>At Senpai Studios, we craft stunning visuals and seamless edits that bring your stories to life. From concept to final cut — we turn moments into masterpieces.</p>
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:studiossenpai07@gmail.com"><i class="fa-brands fa-google"></i></a>
                 <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://discord.com/users/tecku_16"><i class="fa-brands fa-discord"></i></a>
             </div>
-            <a href="#contact" class="btn">Hire us</a>
+            <a href="#portfolio" class="btn">View Portfolio</a>
+
         </div>
     </section>
     <section class="portfolio" id="portfolio">
@@ -66,22 +77,115 @@
     <div class="portfolio-grid">
         <!-- Placeholder videos -->
         <div class="portfolio-item">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 1" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/kMXsh7Uo7Aw?si=NHPi0hwJnQ1JMhIL&amp;controls=1&mute=1" title="WHAT IF GOTEN WAS GOKU BLACK?" allowfullscreen></iframe>
         </div>
         <div class="portfolio-item">
-            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Video 2" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/rWlc6a3Jub0?si=5sJIfdxJ4T_h8-Ff&amp;controls=1&mute=1" title="YouTube video player" title="Video 2" allowfullscreen></iframe>
         </div>
         <div class="portfolio-item">
-            <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Video 3" allowfullscreen></iframe>
+            <iframe src="" title="Video 3" allowfullscreen></iframe>
         </div>
         <div class="portfolio-item">
-            <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" title="Video 4" allowfullscreen></iframe>
+            <iframe src="" title="Video 4" allowfullscreen></iframe>
         </div>
     </div>
 </section>
+<section class="experience" id="experience">
+  <h2 class="section-title">Worked With Creators</h2>
+
+  <div class="swiper experience-swiper">
+    <div class="swiper-wrapper">
+      <!-- Circular creator cards (add more as needed) -->
+      <div class="swiper-slide creator-slide">
+        <img src="images/creator1.jpg" alt="Creator 1" />
+      </div>
+      <div class="swiper-slide creator-slide">
+        <img src="images/creator2.jpg" alt="Creator 2" />
+      </div>
+      <div class="swiper-slide creator-slide">
+        <img src="images/creator3.jpg" alt="Creator 3" />
+      </div>
+      <div class="swiper-slide creator-slide">
+        <img src="images/creator4.jpg" alt="Creator 4" />
+      </div>
+      <!-- Repeat as many as you want -->
+    </div>
+  </div>
+</section>
+
+
+  </div>
+</section>
+<!-- SwiperJS JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.experience-swiper', {
+    loop: true,
+    freeMode: true,
+    grabCursor: true,
+    slidesPerView: 'auto',
+    spaceBetween: 40,
+    speed: 3000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    on: {
+      init: function () {
+        const slides = document.querySelectorAll('.creator-slide');
+        slides.forEach((slide, index) => {
+          slide.style.animationDelay = `${1 + index * 0.3}s`; // 1s base delay + stagger
+        });
+      }
+    }
+  });
+</script>
+
+<script>
+  const glow = document.querySelector('.cursor-glow');
+
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = `${e.clientX - 100}px`;
+    glow.style.top = `${e.clientY - 100}px`;
+    glow.style.opacity = 1;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = 0;
+  });
+</script>
+<script>
+  const glow = document.querySelector('.cursor-glow');
+  const customCursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = `${e.clientX - 150}px`;
+    glow.style.top = `${e.clientY - 150}px`;
+    glow.style.opacity = 1;
+
+    customCursor.style.left = `${e.clientX}px`;
+    customCursor.style.top = `${e.clientY}px`;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    glow.style.opacity = 0;
+    customCursor.style.opacity = 0;
+  });
+
+  document.addEventListener('mouseenter', () => {
+    glow.style.opacity = 1;
+    customCursor.style.opacity = 1;
+  });
+</script>
+
+
 
 </body>
 </html>
+
+
+
 <script>
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('navbar');
