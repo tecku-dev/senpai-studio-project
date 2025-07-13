@@ -134,14 +134,18 @@ span{
     border-radius: 50%;
 }
 
-.home-img img{
+.home-img img {
     position: relative;
     width: 32vw;
     border-radius: 50%;
     box-shadow: 0 0 25px solid #b74b4b;
     cursor: pointer;
     transition: 0.2s linear;
+
+    /* 👇 Add this line for animation */
+    animation: float 3s ease-in-out infinite;
 }
+
 
 .home-img img:hover{
     font-size: 1.8rem;
@@ -403,3 +407,14 @@ header {
     }
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
